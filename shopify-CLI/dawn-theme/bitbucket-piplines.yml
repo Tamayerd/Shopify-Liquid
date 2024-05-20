@@ -1,0 +1,11 @@
+pipelines:
+  default:
+    - step:
+        name: Deploy to Shopify
+        image: node:12
+        caches:
+          - node
+        script:
+          - npm install -g @shopify/cli
+          - shopify login --store 9bb970-75.myshopify.com
+          - shopify theme push --theme 168472477972
